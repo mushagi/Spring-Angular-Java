@@ -28,7 +28,6 @@ public class TodoServiceImplementation implements TodoService{
         if (toDoRepository.findOne(newToDo.getId()) != null) {
             return toDoRepository.save(newToDo);
         }
-
         return null;
     }
 

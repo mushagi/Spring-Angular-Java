@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/todos/")
+@RequestMapping("/api/todos")
 public class ToDoController {
 
     TodoService todoService;
@@ -21,8 +21,7 @@ public class ToDoController {
         this.todoService = todoService;
     }
 
-
-    @GetMapping("/")
+    @GetMapping
     public @ResponseBody List<ToDo> index() {
         return todoService.getAllToDos();
     }
