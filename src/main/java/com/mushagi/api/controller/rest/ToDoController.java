@@ -26,7 +26,7 @@ public class ToDoController {
         return todoService.getAllToDos();
     }
     @GetMapping("/{id}")
-    public @ResponseBody ToDo index(@PathVariable int id) {
+    public @ResponseBody List<ToDo> index(@PathVariable int id) {
         return todoService.getByID(id);
     }
 
@@ -38,8 +38,8 @@ public class ToDoController {
 
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public  void updateToDo(@RequestBody ToDo toDo) {
-        todoService.updateToDo(toDo);
+    public  List<ToDo> updateToDo(@RequestBody ToDo toDo) {
+       return todoService.updateToDo(toDo);
     }
 
     @DeleteMapping("/delete/{id}")

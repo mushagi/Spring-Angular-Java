@@ -19,14 +19,15 @@ public class TodoServiceImplementation implements TodoService{
     }
 
     @Override
-    public ToDo getByID(int id) {
+    public List<ToDo> getByID(int id) {
         return toDoRepository.findById(id);
     }
 
     @Override
-    public ToDo updateToDo(ToDo newToDo) {
+    public List<ToDo> updateToDo(ToDo newToDo) {
         if (toDoRepository.findOne(newToDo.getId()) != null) {
-            return toDoRepository.save(newToDo);
+            toDoRepository.save(newToDo);
+            return toDoRepository.findAll();
         }
         return null;
     }

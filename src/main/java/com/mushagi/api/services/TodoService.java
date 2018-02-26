@@ -8,8 +8,8 @@ import java.util.List;
 @Service
 public interface TodoService {
     List<ToDo> getAllToDos();
-    ToDo getByID (int id);
-    ToDo updateToDo(ToDo newToDo);
+    List<ToDo> getByID (int id);
+    List<ToDo> updateToDo(ToDo newToDo);
     List<ToDo> createToDo(ToDo newToDo);
     List<ToDo> delete(long newToDo);
 }

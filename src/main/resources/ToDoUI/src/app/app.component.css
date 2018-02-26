@@ -12,10 +12,22 @@
   flex-direction: column;
 }
 
+
 .body-text-area{
   width: 100%;
 }
 
 .main-header{
+  margin: 0 auto;
+}
+.mat-elevation-z5 {
+  position: relative;
+  z-index: 6;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  flex: 1 1 auto;
   text-align: center;
+}
+
+mat-sidenav {
+  width: 400px;
 }

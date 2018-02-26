@@ -1,0 +1,9 @@
+<div mat-dialog-content>
+  <p>Enter a todo title</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="title" >
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="title">OK</button>
+</div>

@@ -14,7 +14,7 @@ import java.util.List;
 public interface ToDoRepository extends CrudRepository <ToDo, Long>{
 
     List<ToDo> findAll();
-    ToDo findByTitle(String title);
-    ToDo findById(long id);
+    List<ToDo> findByTitle(String title);
+    List<ToDo> findById(long id);
     List<ToDo> delete(long id);
 }

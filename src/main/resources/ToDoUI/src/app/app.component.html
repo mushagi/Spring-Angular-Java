@@ -1,29 +1,34 @@
-<script src="app.module.ts"></script>
-<script src="app.component.ts"></script>
-<mat-toolbar color="primary"> <h1 class = "main-header">Todo App</h1></mat-toolbar>
+<mat-toolbar color="primary" class = "mat-elevation-z5">
+  <mat-toolbar-row>
+    <p class = " h1 main-header center">Todo App</p>
+  </mat-toolbar-row>
+</mat-toolbar >
 
-<mat-drawer-container class="main-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side" opened >
+<mat-drawer-container class="main-container">
+  <mat-drawer #drawer class="mat-sidenav" mode="side" opened >
     <mat-nav-list  *ngFor="let todo of todos">
-      <mat-list-item (click)="renderDetail(todo)"> {{todo.title}}</mat-list-item>
+      <mat-list-item (click)="renderDetail(todo)">
+        <p matLine style="padding-right: 1em"> {{todo.title}} </p>
+        <button (click)="deleteAToDo(todo) " mat-icon >X</button>
+        <div>
+        </div>
+      </mat-list-item>
+    </mat-nav-list>
+    <mat-nav-list>
+      <mat-list-item (click)="openDialog()"> Create a todo</mat-list-item>
     </mat-nav-list>
   </mat-drawer>
 
   <div class="sidenav-content">
-    <div class="fields-container">
-      <label>{{toDoDetail}}</label>
-      <div [formGroup]="myGroup">
-        <input formControlName="firstName">
-      </div>
-
-      <mat-form-field style="width: 100%;" >
+    <div class="fields-container" ng-controller ="ExampleController">
+      <mat-form-field>
         <textarea matInput placeholder="What do you want to do"
-                  matTextareaAutosize matAutosizeMinRows="100" matAutosizeMaxRows="100"
-                  [(ngModel)]='toDoDetail'
-                  (ngModelChange) = "saveCurrentBody()"
-
-        ></textarea>
+                  matTextareaAutosize matAutosizeMinRows="10" matAutosizeMaxRows="100"
+                  [(ngModel)]="toDoDetail" (keyup) = "saveTitleBody()" (blur)="saveCurrentBody()"
+        >{{toDoDetail}}}</textarea>
       </mat-form-field>
+
+
     </div>
   </div>
 </mat-drawer-container>

@@ -19,4 +19,15 @@ export class TodoService {
     return this.http.get<Todo[]>(API_URL, {responseType: 'json'});
   }
 
+  saveToDo(currentToDo: Todo) : Observable<Todo[]> {
+    return this.http.put<Todo[]>(API_URL + "/update", currentToDo,{responseType: 'json'});
+  }
+
+  addToDo(currentToDo: Todo) : Observable<Todo[]>{
+    return this.http.post<Todo[]>(API_URL + "/insert", currentToDo,{responseType: 'json'});
+  }
+
+  removeToDo(currentToDo: Todo) : Observable<Todo[]>{
+    return this.http.delete<Todo[]>(API_URL + "/delete/" + currentToDo.id,{responseType: 'json'});
+  }
 }

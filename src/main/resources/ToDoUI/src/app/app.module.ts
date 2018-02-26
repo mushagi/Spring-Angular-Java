@@ -5,16 +5,18 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';  // replaces previous Http service
 
+import { AppComponent } from './app.component';
 import {
   MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCheckboxModule,
-  MatSidenavModule, MatListModule, MatFormFieldModule, MatFormFieldControl
+  MatSidenavModule, MatListModule, MatFormFieldModule, MatFormFieldControl, MatInputModule, MatDialogModule
 } from '@angular/material';
-import {FormsModule} from "@angular/forms";
-import {AppComponent} from "./app.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { CreateTodoDialogComponent } from './custom_components/create-todo-dialog/create-todo-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CreateTodoDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -30,12 +32,17 @@ import {AppComponent} from "./app.component";
     MatSidenavModule,
     MatListModule,
     MatSidenavModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+    CreateTodoDialogComponent
   ],
+  entryComponents: [AppComponent, CreateTodoDialogComponent],
   providers: [TodoService],
   bootstrap: [AppComponent]
 })
