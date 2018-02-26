@@ -1,0 +1,31 @@
+<script src="app.module.ts"></script>
+<script src="app.component.ts"></script>
+<mat-toolbar color="primary"> <h1 class = "main-header">Todo App</h1></mat-toolbar>
+
+<mat-drawer-container class="main-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened >
+    <mat-nav-list  *ngFor="let todo of todos">
+      <mat-list-item (click)="renderDetail(todo)"> {{todo.title}}</mat-list-item>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <div class="fields-container">
+      <label>{{toDoDetail}}</label>
+      <div [formGroup]="myGroup">
+        <input formControlName="firstName">
+      </div>
+
+      <mat-form-field style="width: 100%;" >
+        <textarea matInput placeholder="What do you want to do"
+                  matTextareaAutosize matAutosizeMinRows="100" matAutosizeMaxRows="100"
+                  [(ngModel)]='toDoDetail'
+                  (ngModelChange) = "saveCurrentBody()"
+
+        ></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+</mat-drawer-container>
+
+
